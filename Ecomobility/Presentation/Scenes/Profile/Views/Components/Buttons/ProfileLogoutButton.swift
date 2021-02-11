@@ -1,5 +1,5 @@
 //
-//  LogoutButton.swift
+//  ProfileLogoutButton.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 10/2/21.
@@ -9,21 +9,27 @@ import SwiftUI
 
 struct ProfileLogoutButton: View {
     // MARK: Properties
-    var buttonTapped: () -> Void
+    var action: () -> Void
 
     // MARK: View
     var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
+        button
+    }
+}
 
-            Button(action: {
-                buttonTapped()
-            }, label: {
-                Text("Log out")
-                    .foregroundColor(.red)
-            })
+extension ProfileLogoutButton {
+    // MARK: Components
+    private var button: some View {
+        Button(action: {
+            action()
+        }, label: {
+            title
+        })
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+    }
 
-            Spacer()
-        }
+    private var title: some View {
+        Text("Log out")
+            .foregroundColor(.red)
     }
 }

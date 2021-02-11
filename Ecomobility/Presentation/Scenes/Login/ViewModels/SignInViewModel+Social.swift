@@ -10,6 +10,7 @@ import AuthenticationServices
 
 // MARK: Social authentication
 extension SignInViewModel: SocialAuthenticable {
+    // MARK: Events
     func appleOnRequestAuthentication(request: ASAuthorizationAppleIDRequest) {
         request.requestedScopes = [.fullName, .email]
     }

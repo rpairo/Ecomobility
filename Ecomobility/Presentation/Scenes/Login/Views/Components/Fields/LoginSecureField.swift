@@ -1,5 +1,5 @@
 //
-//  LoginSecureTextField.swift
+//  LoginSecureField.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 4/2/21.
@@ -14,6 +14,14 @@ struct LoginSecureField: View {
 
     // MARK: View
     var body: some View {
+        field
+    }
+}
+
+// MARK: Border
+extension LoginSecureField {
+    // MARK: Components
+    private var field: some View {
         SecureField(placeholder, text: $input)
             .textContentType(.password)
             .foregroundColor(.accentColor)
@@ -22,10 +30,7 @@ struct LoginSecureField: View {
             .overlay(border)
             .padding(.horizontal, 30)
     }
-}
 
-// MARK: Border
-extension LoginSecureField {
     private var border: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(Color.accentColor, lineWidth: 1)

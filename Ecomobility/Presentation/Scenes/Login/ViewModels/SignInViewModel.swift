@@ -23,12 +23,12 @@ final class SignInViewModel: ObservableObject {
     }
 
     // MARK: Events
-    func authenticate(onCompletion: @escaping (Page) -> Void) {
+    func authenticate(onCompletion: @escaping (Scenes) -> Void) {
         authUseCase.execute { result in
             switch result {
             case .success(let credentials):
                 self.storeSession(credentials: credentials) {
-                    onCompletion(.map)
+                    onCompletion(.base)
                 }
             case .failure(let error):
                 NSLog(error.localizedDescription)

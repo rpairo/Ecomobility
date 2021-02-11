@@ -1,5 +1,5 @@
 //
-//  SignUpButton.swift
+//  LoginSignUpButton.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 6/2/21.
@@ -14,6 +14,13 @@ struct LoginSignUpButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension LoginSignUpButton {
+    // MARK: Components
+    private var button: some View {
         Button(title) {
             action()
         }

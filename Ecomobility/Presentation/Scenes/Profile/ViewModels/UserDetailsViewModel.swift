@@ -21,8 +21,10 @@ final class UserDetailsViewModel: ObservableObject {
     func onAppear() {
         fetchUserAuth()
     }
+}
 
-    // MARK: Functionality
+// MARK: Functionality
+extension UserDetailsViewModel {
     func fetchUserAuth() {
         fetchUserAuthUseCase.execute { result in
             switch result {
@@ -43,5 +45,12 @@ final class UserDetailsViewModel: ObservableObject {
         case .unkown(let error):
             NSLog(error.localizedDescription)
         }
+    }
+}
+
+// MARK: Events
+extension UserDetailsViewModel {
+    func completeProfileTapped() {
+        NSLog("Complete profile")
     }
 }

@@ -15,20 +15,6 @@ struct AuthRepository: AuthRepositable {
     var checkDataSource: CheckAuthDataSourceable
     var fetchUserDataSource: FetchUserAuthDataSourceable
 
-    // MARK: Constructor
-    init(fetchingDataSource: FetchAuthDataSourceable,
-         logoutDataSource: LogoutAuthDataSourceable,
-         storeDataSource: StoreAuthDataSourceable,
-         checkDataSource: CheckAuthDataSourceable,
-         fetchUserDataSource: FetchUserAuthDataSourceable) {
-
-        self.fetchingDataSource = fetchingDataSource
-        self.logoutDataSource = logoutDataSource
-        self.storeDataSource = storeDataSource
-        self.checkDataSource = checkDataSource
-        self.fetchUserDataSource = fetchUserDataSource
-    }
-
     // MARK: Functionality
     func fetch(onCompletion: @escaping FetchAuthResult) {
         fetchingDataSource.fetch(onCompletion: onCompletion)

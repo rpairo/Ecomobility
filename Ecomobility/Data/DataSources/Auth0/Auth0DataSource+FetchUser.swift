@@ -28,16 +28,7 @@ extension Auth0DataSource: FetchUserAuthDataSourceable {
                 .start { result in
                     switch result {
                     case .success(let profile):
-                        let user = User(
-                            name: profile.name,
-                            email: profile.email,
-                            picture: profile.picture?.absoluteString,
-                            nickname: profile.nickname,
-                            familyName: profile.familyName,
-                            givenName: profile.givenName
-                        )
-
-                        onCompletion(.success(user))
+                        onCompletion(.success(profile.transform()))
                     case .failure(let error):
                         onCompletion(.failure(.unkown(error)))
                     }

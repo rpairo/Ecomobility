@@ -1,5 +1,5 @@
 //
-//  UserCard.swift
+//  ProfileDetailsUser.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 11/2/21.
@@ -9,37 +9,33 @@ import SwiftUI
 
 struct ProfileDetailsUser: View {
     // MARK: Properties
-    private var user: User
-    private var radius: CGFloat = 20
-    private var progression: Float
-
-    // MARK: Constructor
-    init(user: User, progression: Float) {
-        self.user = user
-        self.progression = progression
-    }
+    var name: String
+    var picture: Data?
+    var radius: CGFloat = 20
+    var progression: Float
+    var titleButton: String
+    var action: () -> Void
 
     // MARK: Views
     var body: some View {
         VStack {
             userView
-            progressionView
+            progressView
         }
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: radius))
         .shadow(color: Color.gray.opacity(0.3), radius: 18, y: 6)
         .padding()
     }
+}
 
-    var userView: some View {
+// MARK: Sections
+extension ProfileDetailsUser {
+    // MARK: Views
+    private var userView: some View {
         VStack {
-            ProfileUserImage(pictureData: user.pictureData)
-                .frame(width: 80, height: 80)
-                .padding(10)
-
-            Text(user.name ?? "Name")
-                .foregroundColor(.white)
-                .font(.headline)
+            userImage
+            userName
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
@@ -47,29 +43,22 @@ struct ProfileDetailsUser: View {
         .clipShape(RoundedRectangle(cornerRadius: radius))
     }
 
-    var progressionView: some View {
-        VStack {
-            Text("\(String(format: "%.f", progression))%")
-                .foregroundColor(Color.accentColor)
-                .font(.footnote)
-                .bold()
+    // MARK: Components
+    private var userImage: some View {
+        ProfileUserImage(picture: picture, color: .white)
+            .frame(width: 80, height: 80)
+            .padding(10)
+    }
 
-            ProgressView(value: progression, total: 100)
-                .padding(.horizontal)
-                .padding(.bottom)
+    private var userName: some View {
+        Text(name)
+            .foregroundColor(.white)
+            .font(.headline)
+    }
 
-            Button(action: {
-
-            }, label: {
-                Text("Complete your profile")
-                    .foregroundColor(.accentColor)
-                    .font(.footnote)
-            })
-            .padding(.vertical, 10)
-            .padding(.horizontal, 20)
-            .background(Color.white)
-            .overlay(Capsule().stroke(Color.accentColor))
+    private var progressView: some View {
+        ProfileProgressView(progression: progression, title: titleButton) {
+            action()
         }
-        .padding(.vertical)
     }
 }

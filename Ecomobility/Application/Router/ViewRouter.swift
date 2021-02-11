@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum Page {
+enum Scenes {
     // MARK: Cases
     case login
-    case map
+    case base
 }
 
 class ViewRouter: ObservableObject {
     // MARK: Properties
-    @Published var currentPage: Page = .login
+    @Published var currentPage: Scenes = .login
 }

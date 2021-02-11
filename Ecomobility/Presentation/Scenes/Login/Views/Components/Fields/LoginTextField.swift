@@ -14,6 +14,13 @@ struct LoginTextField: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension LoginTextField {
+    // MARK: Components
+    private var button: some View {
         TextField(placeholder, text: $input)
             .disableAutocorrection(true)
             .foregroundColor(.accentColor)
@@ -22,10 +29,7 @@ struct LoginTextField: View {
             .overlay(border)
             .padding(.horizontal, 30)
     }
-}
 
-// MARK: Border
-extension LoginTextField {
     private var border: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(Color.accentColor, lineWidth: 1)

@@ -21,6 +21,13 @@ struct SocialGoogleButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension SocialGoogleButton {
+    // MARK: Components
+    private var button: some View {
         Button(action: {
             onRequest()
         }, label: {
@@ -30,9 +37,7 @@ struct SocialGoogleButton: View {
         })
         .overlay(border)
     }
-}
 
-extension SocialGoogleButton {
     private var border: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(gradient, lineWidth: 1)

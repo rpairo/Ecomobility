@@ -22,23 +22,10 @@ final class SignUpViewModel: ObservableObject {
         self.authUseCase = authUseCase
         self.storeSession = storeSession
     }
+}
 
-    // MARK: Events
-    func register(onCompletion: @escaping (Page) -> Void) {
-        authUseCase.execute { result in
-            switch result {
-            case .success(let credentials):
-                self.storeSession(credentials: credentials) {
-                    onCompletion(.map)
-                }
-            case .failure(let error):
-                NSLog(error.localizedDescription)
-                onCompletion(.login)
-            }
-        }
-    }
-
-    // MARK: Functionality
+// MARK: Functionality
+extension SignUpViewModel {
     func storeSession(credentials: AuthCredentials, stored: @escaping () -> Void) {
         storeSession.store(credentials: credentials) { result in
             switch result {
@@ -46,6 +33,23 @@ final class SignUpViewModel: ObservableObject {
                 stored()
             case .failure(let error):
                 NSLog(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: Events
+extension SignUpViewModel {
+    func signUpTapped(onCompletion: @escaping (Scenes) -> Void) {
+        authUseCase.execute { result in
+            switch result {
+            case .success(let credentials):
+                self.storeSession(credentials: credentials) {
+                    onCompletion(.base)
+                }
+            case .failure(let error):
+                NSLog(error.localizedDescription)
+                onCompletion(.login)
             }
         }
     }

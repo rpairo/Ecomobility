@@ -1,5 +1,5 @@
 //
-//  SettingsProfile.swift
+//  ProfileUser.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 10/2/21.
@@ -9,30 +9,45 @@ import SwiftUI
 
 struct ProfileUser: View {
     // MARK: Properties
-    var user: User
+    var name: String
+    var email: String
+    var picture: Data?
 
     // MARK: View
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
-            ProfileUserImage(pictureData: user.pictureData)
-                .frame(width: 60, height: 60)
-
-            VStack(alignment: .leading, spacing: 5) {
-                Text(user.name ?? "Full name")
-                    .font(.headline)
-                    .foregroundColor(Color(UIColor.darkGray))
-
-                Text(user.email ?? "Email")
-                    .font(.footnote)
-                    .foregroundColor(Color(UIColor.lightGray))
-            }
-
+        HStack(spacing: 20) {
+            userImage
+            profileInfoSection
             Spacer()
-
-            Image(systemName: "chevron.forward")
-                .renderingMode(.template)
-                .foregroundColor(Color(UIColor.lightGray))
+            arrow
         }
         .padding(.vertical, 5)
+    }
+}
+
+extension ProfileUser {
+    // MARK: Views
+    private var profileInfoSection: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(name)
+                .font(.headline)
+                .foregroundColor(Color(.darkGray))
+
+            Text(email)
+                .font(.footnote)
+                .foregroundColor(Color(.lightGray))
+        }
+    }
+
+    // MARK: Components
+    private var userImage: some View {
+        ProfileUserImage(picture: picture, color: Color(.lightGray))
+            .frame(width: 60, height: 60)
+    }
+
+    private var arrow: some View {
+        Image(systemName: "chevron.forward")
+            .renderingMode(.template)
+            .foregroundColor(Color(.lightGray))
     }
 }

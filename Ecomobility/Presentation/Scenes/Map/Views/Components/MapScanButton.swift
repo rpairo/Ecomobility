@@ -13,21 +13,39 @@ struct MapScanButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension MapScanButton {
+    // MARK: Components
+    private var button: some View {
         Button(action: {
             action()
         }, label: {
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.white)
-
-                Text("Scan to unlock")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-            }
-            .padding()
+            content
         })
         .background(Color.accentColor)
         .clipShape(Capsule())
         .padding()
+    }
+
+    private var content: some View {
+        HStack {
+            image
+            title
+        }
+        .padding()
+    }
+
+    private var image: some View {
+        Image(systemName: "magnifyingglass")
+            .foregroundColor(.white)
+    }
+
+    private var title: some View {
+        Text("Scan to unlock")
+            .fontWeight(.bold)
+            .foregroundColor(.white)
     }
 }

@@ -9,19 +9,23 @@ import SwiftUI
 
 struct ProfileUserImage: View {
     // MARK: Properties
-    var pictureData: Data?
+    var picture: Data?
+    var color: Color
 
     // MARK: Views
     var body: some View {
         userImage
             .resizable()
             .scaledToFill()
-            .foregroundColor(Color(.lightGray))
+            .foregroundColor(color)
             .clipShape(Circle())
     }
+}
 
-    var userImage: Image {
-        if let data = pictureData, let image = UIImage(data: data) {
+extension ProfileUserImage {
+    // MARK: Components
+    private var userImage: Image {
+        if let data = picture, let image = UIImage(data: data) {
             return Image(uiImage: image)
         }
 

@@ -16,12 +16,8 @@ struct MapView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                mapView
-                    .ignoresSafeArea(edges: .top)
-
-                MapScanButton {
-                    viewModel.scanTapped()
-                }
+                map
+                button
             }
 
             .navigationBarTitleDisplayMode(.inline)
@@ -32,11 +28,21 @@ struct MapView: View {
             }
         }
     }
+}
 
-    var mapView: some View {
+// MARK: Sections
+extension MapView {
+    // MARK: Components
+    var map: some View {
         Map(coordinateRegion: $viewModel.region,
             showsUserLocation: true,
             userTrackingMode: .constant(.follow))
+    }
+
+    var button: some View {
+        MapScanButton {
+            viewModel.scanTapped()
+        }
     }
 
     var companyLogo: some View {

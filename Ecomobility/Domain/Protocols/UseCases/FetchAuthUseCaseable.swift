@@ -1,5 +1,5 @@
 //
-//  FetchAuthCredentialsUseCaseable.swift
+//  FetchAuthUseCaseable.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 10/2/21.

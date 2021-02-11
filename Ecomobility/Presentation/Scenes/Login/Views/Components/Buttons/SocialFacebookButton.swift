@@ -15,6 +15,13 @@ struct SocialFacebookButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension SocialFacebookButton {
+    // MARK: Components
+    private var button: some View {
         Button(action: {
             onRequest()
         }, label: {
@@ -26,9 +33,7 @@ struct SocialFacebookButton: View {
         })
         .overlay(border)
     }
-}
 
-extension SocialFacebookButton {
     private var border: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(Color.blue, lineWidth: 1)

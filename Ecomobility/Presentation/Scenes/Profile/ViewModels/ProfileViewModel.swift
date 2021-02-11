@@ -11,6 +11,7 @@ final class ProfileViewModel: ObservableObject {
     // MARK: Properties
     @Published var user = User()
     @Published var amount = ""
+    @Published var rides = ""
     @Published var isPushNotificated = true
     @Published var isNewsNotificated = false
 
@@ -27,20 +28,14 @@ final class ProfileViewModel: ObservableObject {
 
     // MARK: Lifecycle
     func onAppear() {
-        updateAmount(amount: 10.23)
         fetchUserAuth()
+        updateAmount(amount: 10.23)
+        updateRides(rides: 12)
     }
+}
 
-    // MARK: Functionality
-    func updateAmount(amount: NSNumber) {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "en_GB")
-
-        guard let currencyAmount = formatter.string(from: amount) else { return }
-        self.amount = currencyAmount
-    }
-
+// MARK: Functionality
+extension ProfileViewModel {
     func fetchUserAuth() {
         fetchUserAuthUseCase.execute { result in
             switch result {
@@ -63,19 +58,42 @@ final class ProfileViewModel: ObservableObject {
         }
     }
 
-    // MARK: Events
-    func logoutTapped(onCompletion: @escaping (Page) -> Void) {
+    func updateAmount(amount: NSNumber) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "en_GB")
+
+        guard let currencyAmount = formatter.string(from: amount) else { return }
+        self.amount = currencyAmount
+    }
+
+    func updateRides(rides: Int) {
+        self.rides = "\(rides) Rides"
+    }
+}
+
+// MARK: Events
+extension ProfileViewModel {
+    func settingsTapped() {
+        NSLog("Settings tapped")
+    }
+
+    func ridesTapped() {
+        NSLog("Rides tapped")
+    }
+
+    func amountTapped() {
+        NSLog("Amount tapped")
+    }
+
+    func logoutTapped(onCompletion: @escaping (Scenes) -> Void) {
         logoutAuthUseCase.execute { result in
             switch result {
             case .success:
                 onCompletion(.login)
             case .failure:
-                onCompletion(.map)
+                onCompletion(.base)
             }
         }
-    }
-
-    func settingsTapped() {
-        NSLog("Settings tapped")
     }
 }

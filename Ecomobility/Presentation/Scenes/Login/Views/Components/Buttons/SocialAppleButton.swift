@@ -1,5 +1,5 @@
 //
-//  SignInAppleButton.swift
+//  SocialAppleButton.swift
 //  Ecomobility
 //
 //  Created by Raúl Pera Pairó on 3/2/21.
@@ -15,6 +15,13 @@ struct SocialAppleButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension SocialAppleButton {
+    // MARK: Components
+    private var button: some View {
         Button(action: {
         }, label: {
             Image(uiImage: UIImage(named: "apple_logo")!)
@@ -25,9 +32,7 @@ struct SocialAppleButton: View {
         })
         .overlay(border)
     }
-}
 
-extension SocialAppleButton {
     private var border: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(Color.black, lineWidth: 1)

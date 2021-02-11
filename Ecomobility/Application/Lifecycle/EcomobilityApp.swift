@@ -11,7 +11,6 @@ import SwiftUI
 struct EcomobilityApp: App {
     // MARK: Properties
     @StateObject var viewRouter: ViewRouter = Injector().resolve()
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     // MARK: Constructor
     init() {

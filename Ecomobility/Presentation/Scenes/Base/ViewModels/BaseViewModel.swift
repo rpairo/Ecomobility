@@ -17,11 +17,11 @@ final class BaseViewModel: ObservableObject {
     }
 
     // MARK: Functionality
-    func onAppear(onCompletion: @escaping (Page) -> Void) {
+    func onAppear(onCompletion: @escaping (Scenes) -> Void) {
         authUseCase.check { result in
             switch result {
             case .success:
-                onCompletion(.map)
+                onCompletion(.base)
             case .failure:
                 onCompletion(.login)
             }

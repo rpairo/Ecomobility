@@ -21,12 +21,7 @@ struct ProfileView: View {
                 amountSection
                 ridesSection
                 notificationsSection
-
-                ProfileLogoutButton {
-                    viewModel.logoutTapped { page in
-                        viewRouter.currentPage = page
-                    }
-                }
+                profileButtonSection
             }
 
             .navigationTitle("Profile")

@@ -13,16 +13,18 @@ struct LoginView: View {
 
     // MARK: View
     var body: some View {
-        GeometryReader { geometry in
-            Image("login_mosaic")
-                .resizable()
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height * 0.6)
+        VStack {
+            logoSection
+            Spacer()
+            buttonsSection
         }
-        .edgesIgnoringSafeArea(.top)
+    }
+}
 
-        Spacer()
-
+// MARK: Sections
+extension LoginView {
+    // MARK: Views
+    var buttonsSection: some View {
         VStack(alignment: .center) {
             LoginButton(title: "SIGN IN") {
                 viewModel.signInTapped()
@@ -36,5 +38,16 @@ struct LoginView: View {
                 SignUpView(viewModel: Injector().resolve())
             }
         }
+    }
+
+    // MARK: Components
+    var logoSection: some View {
+        GeometryReader { geometry in
+            Image("login_mosaic")
+                .resizable()
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height * 0.6)
+        }
+        .edgesIgnoringSafeArea(.top)
     }
 }

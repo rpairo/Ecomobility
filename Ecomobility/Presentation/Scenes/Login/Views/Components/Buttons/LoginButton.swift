@@ -14,6 +14,13 @@ struct LoginButton: View {
 
     // MARK: View
     var body: some View {
+        button
+    }
+}
+
+extension LoginButton {
+    // MARK: Components
+    private var button: some View {
         Button(action: {
             action()
         }, label: {

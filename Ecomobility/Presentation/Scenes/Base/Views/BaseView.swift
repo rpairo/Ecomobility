@@ -18,8 +18,8 @@ struct BaseView: View {
             switch viewRouter.currentPage {
             case .login:
                 loginFlow
-            case .map:
-                mapFlow
+            case .base:
+                baseFlow
                     .transition(.scale)
             }
         }.onAppear {
@@ -30,16 +30,14 @@ struct BaseView: View {
     }
 }
 
-// MARK: Login flow
+// MARK: Flows
 extension BaseView {
+    // MARK: Views
     var loginFlow: some View {
         LoginView(viewModel: Injector().resolve())
     }
-}
 
-// MARK: Map flow
-extension BaseView {
-    var mapFlow: some View {
+    var baseFlow: some View {
         TabView {
             MapView(viewModel: Injector().resolve())
                 .tag(0)
