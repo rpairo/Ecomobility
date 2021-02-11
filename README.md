@@ -18,6 +18,7 @@ I have also opted for the use of Dependency Injection to decouple the responsibi
 
 As the only external dependency I have decided to use the native library that Auth0 provides. I would have preferred to do a totally abstract implementation using HTTP, but given the time I had for testing I decided to use this solution. As a dependency manager I have used SPM, Apple's native solution, due to its cleanliness and integration.
 
+I have also implemented [SwiftLint](https://github.com/realm/SwiftLint) with [Ray Wenderlich's ](https://github.com/raywenderlich/swift-style-guide)setting as a linter. This is a tool to enforce Swift style and conventions.
 
 ## Scenes
 

@@ -11,8 +11,10 @@ final class LoginViewModel: ObservableObject {
     // MARK: Properties
     @Published var showingSignIn = false
     @Published var showingSignUp = false
+}
 
-    // MARK: Events
+// MARK: Events
+extension LoginViewModel {
     func signInTapped() {
         showingSignIn.toggle()
     }

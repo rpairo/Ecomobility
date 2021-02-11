@@ -20,8 +20,10 @@ final class MapViewModel: ObservableObject {
             longitudeDelta: 10
         )
     )
+}
 
-    // MARK: Events
+// MARK: Events
+extension MapViewModel {
     func scanTapped() {
         NSLog("Scaning...")
     }

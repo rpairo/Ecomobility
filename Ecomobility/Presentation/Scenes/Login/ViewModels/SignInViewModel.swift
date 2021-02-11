@@ -21,9 +21,25 @@ final class SignInViewModel: ObservableObject {
         self.authUseCase = authUseCase
         self.storeSessionUseCase = storeSession
     }
+}
 
-    // MARK: Events
-    func authenticate(onCompletion: @escaping (Scenes) -> Void) {
+// MARK: Functionality
+extension SignInViewModel {
+    func storeSession(credentials: AuthCredentials, onCompletion: @escaping () -> Void) {
+        storeSessionUseCase.store(credentials: credentials) { result in
+            switch result {
+            case .success:
+                onCompletion()
+            case .failure(let error):
+                NSLog(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: Events
+extension SignInViewModel {
+    func signInTapped(onCompletion: @escaping (Scenes) -> Void) {
         authUseCase.execute { result in
             switch result {
             case .success(let credentials):
@@ -33,18 +49,6 @@ final class SignInViewModel: ObservableObject {
             case .failure(let error):
                 NSLog(error.localizedDescription)
                 onCompletion(.login)
-            }
-        }
-    }
-
-    // MARK: Functionality
-    func storeSession(credentials: AuthCredentials, onCompletion: @escaping () -> Void) {
-        storeSessionUseCase.store(credentials: credentials) { result in
-            switch result {
-            case .success:
-                onCompletion()
-            case .failure(let error):
-                NSLog(error.localizedDescription)
             }
         }
     }

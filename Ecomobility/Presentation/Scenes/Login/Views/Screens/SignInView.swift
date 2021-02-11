@@ -73,7 +73,7 @@ extension SignInView {
 
     var loginButtonSection: some View {
         LoginButton(title: "SIGN IN") {
-            viewModel.authenticate { page in
+            viewModel.signInTapped { page in
                 viewRouter.currentPage = page
             }
         }

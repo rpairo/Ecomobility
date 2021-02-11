@@ -16,7 +16,7 @@ final class BaseViewModel: ObservableObject {
         self.authUseCase = authUseCase
     }
 
-    // MARK: Functionality
+    // MARK: Lifecycle
     func onAppear(onCompletion: @escaping (Scenes) -> Void) {
         authUseCase.check { result in
             switch result {
