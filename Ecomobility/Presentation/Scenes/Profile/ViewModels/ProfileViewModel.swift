@@ -15,6 +15,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var isPushNotificated = true
     @Published var isNewsNotificated = false
 
+    // Use cases
     var logoutAuthUseCase: LogoutAuthUseCaseable
     var fetchUserAuthUseCase: FetchUserAuthUseCaseable
 
@@ -53,8 +54,8 @@ extension ProfileViewModel {
         switch error {
         case .credentials:
             NSLog("Wrong credentials")
-        case .unkown(let error):
-            NSLog(error.localizedDescription)
+        case .unkown:
+            NSLog("Unkown error")
         }
     }
 

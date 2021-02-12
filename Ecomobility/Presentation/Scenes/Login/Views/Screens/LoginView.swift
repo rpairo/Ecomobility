@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     // MARK: Properties
-    @ObservedObject var viewModel: LoginViewModel
+    @StateObject var viewModel: LoginViewModel
 
     // MARK: View
     var body: some View {
@@ -29,13 +29,13 @@ extension LoginView {
             LoginButton(title: "SIGN IN") {
                 viewModel.signInTapped()
             }.sheet(isPresented: $viewModel.showingSignIn) {
-                SignInView(viewModel: Injector().resolve())
+                SignInView(viewModel: Injector.shared.resolve())
             }
 
             LoginSignUpButton(title: "Don't have an account? Sign up") {
                 viewModel.signUpTapped()
             }.sheet(isPresented: $viewModel.showingSignUp) {
-                SignUpView(viewModel: Injector().resolve())
+                SignUpView(viewModel: Injector.shared.resolve())
             }
         }
     }

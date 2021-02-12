@@ -10,6 +10,10 @@ import Foundation
 struct Injector {
     // MARK: Properties
     let router = ViewRouter()
+    static let shared = Injector()
+
+    // MARK: Constructor
+    private init() { }
 
     // MARK: Router
     func resolve() -> ViewRouter {
@@ -69,23 +73,23 @@ struct Injector {
 
     // MARK: Use cases
     func resolve() -> FetchAuthUseCaseable {
-        FetchAuthUseCase(repository: resolve())
+        FetchAuthUseCase(authRepository: resolve())
     }
 
     func resolve() -> LogoutAuthUseCaseable {
-        LogoutAuthUseCase(repository: resolve())
+        LogoutAuthUseCase(authRepository: resolve())
     }
 
     func resolve() -> StoreAuthUseCaseable {
-        StoreAuthUseCase(repository: resolve())
+        StoreAuthUseCase(authRepository: resolve())
     }
 
     func resolve() -> CheckAuthUseCaseable {
-        CheckAuthUseCase(repository: resolve())
+        CheckAuthUseCase(authRepository: resolve())
     }
 
     func resolve() -> FetchUserAuthUseCaseable {
-        FetchUserAuthUseCase(repository: resolve())
+        FetchUserAuthUseCase(authRepository: resolve())
     }
 
     // MARK: Repositories

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     // MARK: Properties
-    @ObservedObject var viewModel: SignUpViewModel
+    @StateObject var viewModel: SignUpViewModel
     @EnvironmentObject var viewRouter: ViewRouter
 
     // MARK: View
@@ -76,8 +76,8 @@ extension SignUpView {
 
     var loginButtonSection: some View {
         LoginButton(title: "SIGN UP") {
-            viewModel.signUpTapped { page in
-                viewRouter.currentPage = page
+            viewModel.signUpTapped { scene in
+                viewRouter.currentScene = scene
             }
         }
     }

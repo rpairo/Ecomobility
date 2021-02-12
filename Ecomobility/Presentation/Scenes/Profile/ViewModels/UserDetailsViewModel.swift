@@ -10,6 +10,9 @@ import Foundation
 final class UserDetailsViewModel: ObservableObject {
     // MARK: Properties
     @Published var user = User()
+    @Published var completionProgress: Float = 0
+
+    // Use cases
     var fetchUserAuthUseCase: FetchUserAuthUseCaseable
 
     // MARK: Constructor
@@ -20,6 +23,7 @@ final class UserDetailsViewModel: ObservableObject {
     // MARK: Lifecycle
     func onAppear() {
         fetchUserAuth()
+        updateCompletionProgress()
     }
 }
 
@@ -45,6 +49,10 @@ extension UserDetailsViewModel {
         case .unkown(let error):
             NSLog(error.localizedDescription)
         }
+    }
+
+    func updateCompletionProgress() {
+        completionProgress = 70
     }
 }
 

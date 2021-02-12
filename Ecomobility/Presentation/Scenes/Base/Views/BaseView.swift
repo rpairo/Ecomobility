@@ -10,12 +10,12 @@ import SwiftUI
 struct BaseView: View {
     // MARK: Properties
     @EnvironmentObject var viewRouter: ViewRouter
-    @ObservedObject var viewModel: BaseViewModel
+    @StateObject var viewModel: BaseViewModel
 
     // MARK: View
     var body: some View {
         VStack {
-            switch viewRouter.currentPage {
+            switch viewRouter.currentScene {
             case .login:
                 loginFlow
             case .base:
@@ -23,8 +23,8 @@ struct BaseView: View {
                     .transition(.scale)
             }
         }.onAppear {
-            viewModel.onAppear { page in
-                viewRouter.currentPage = page
+            viewModel.onAppear { scene in
+                viewRouter.currentScene = scene
             }
         }
     }
@@ -34,19 +34,19 @@ struct BaseView: View {
 extension BaseView {
     // MARK: Views
     var loginFlow: some View {
-        LoginView(viewModel: Injector().resolve())
+        LoginView(viewModel: Injector.shared.resolve())
     }
 
     var baseFlow: some View {
         TabView {
-            MapView(viewModel: Injector().resolve())
+            MapView(viewModel: Injector.shared.resolve())
                 .tag(0)
                 .tabItem {
                     Text("Map")
                     Image(systemName: "map.fill")
                 }
 
-            ProfileView(viewModel: Injector().resolve())
+            ProfileView(viewModel: Injector.shared.resolve())
                 .tag(1)
                 .tabItem {
                     Text("Profile")

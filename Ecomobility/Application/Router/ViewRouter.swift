@@ -15,5 +15,5 @@ enum Scenes {
 
 class ViewRouter: ObservableObject {
     // MARK: Properties
-    @Published var currentPage: Scenes = .login
+    @Published var currentScene: Scenes = .login
 }

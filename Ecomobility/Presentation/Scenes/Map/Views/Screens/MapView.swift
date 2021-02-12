@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     // MARK: Properties
-    @ObservedObject var viewModel: MapViewModel
+    @StateObject var viewModel: MapViewModel
 
     // MARK: Views
     var body: some View {

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     // MARK: Properties
-    @State var profileSheet = false
+    @State internal var profileSheet = false
     @EnvironmentObject var viewRouter: ViewRouter
-    @ObservedObject var viewModel: ProfileViewModel
+    @StateObject var viewModel: ProfileViewModel
 
     // MARK: View
     var body: some View {

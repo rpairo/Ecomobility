@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct EcomobilityApp: App {
     // MARK: Properties
-    @StateObject var viewRouter: ViewRouter = Injector().resolve()
+    @StateObject var viewRouter: ViewRouter = Injector.shared.resolve()
 
     // MARK: Constructor
     init() {
@@ -26,7 +26,7 @@ struct EcomobilityApp: App {
     // MARK: Scene
     var body: some Scene {
         WindowGroup {
-            BaseView(viewModel: Injector().resolve())
+            BaseView(viewModel: Injector.shared.resolve())
                 .environmentObject(viewRouter)
                 .statusBar(hidden: true)
         }

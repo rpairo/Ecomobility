@@ -17,7 +17,7 @@ extension ProfileView {
                 picture: viewModel.user.pictureData
             )
             .sheet(isPresented: $profileSheet, content: {
-                ProfileDetailsView(viewModel: Injector().resolve())
+                ProfileDetailsView(viewModel: Injector.shared.resolve())
             })
             .onTapGesture {
                 profileSheet.toggle()
@@ -67,8 +67,8 @@ extension ProfileView {
 
     var profileButtonSection: some View {
         ProfileLogoutButton {
-            viewModel.logoutTapped { page in
-                viewRouter.currentPage = page
+            viewModel.logoutTapped { scene in
+                viewRouter.currentScene = scene
             }
         }
     }

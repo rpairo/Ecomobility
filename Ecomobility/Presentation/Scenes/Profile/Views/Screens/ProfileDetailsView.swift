@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileDetailsView: View {
     // MARK: Properties
-    @ObservedObject var viewModel: UserDetailsViewModel
+    @StateObject var viewModel: UserDetailsViewModel
 
     // MARK: View
     var body: some View {
@@ -31,7 +31,7 @@ extension ProfileDetailsView {
         ProfileDetailsUser(
             name: viewModel.user.name ?? "Name",
             picture: viewModel.user.pictureData,
-            progression: 70,
+            progression: viewModel.completionProgress,
             titleButton: "Complete your profile"
         ) {
             viewModel.completeProfileTapped()

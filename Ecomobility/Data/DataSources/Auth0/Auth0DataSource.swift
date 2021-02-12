@@ -12,6 +12,7 @@ class Auth0DataSource {
     // MARK: Properties
     let manager = CredentialsManager(authentication: Auth0.authentication())
 
+    // Computed properties
     var domain: String? {
         let file = "Auth0"
         let type = "plist"

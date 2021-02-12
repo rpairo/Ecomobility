@@ -11,6 +11,7 @@
 		C43056FE25D5BD2400D07A27 /* ProfileSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43056FD25D5BD2400D07A27 /* ProfileSwitchView.swift */; };
 		C430570125D5BFB100D07A27 /* ProfileActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430570025D5BFB100D07A27 /* ProfileActionView.swift */; };
 		C430572025D5E17500D07A27 /* UserInfo+DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430571F25D5E17500D07A27 /* UserInfo+DTO.swift */; };
+		C430572425D5EFF900D07A27 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C430572325D5EFF900D07A27 /* Colors.xcassets */; };
 		C439A99625D35E4800F341D0 /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439A99525D35E4800F341D0 /* AuthCredentials.swift */; };
 		C439A99925D3649000F341D0 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439A99825D3649000F341D0 /* AuthRepository.swift */; };
 		C439A99D25D364A900F341D0 /* AuthRepositable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439A99C25D364A900F341D0 /* AuthRepositable.swift */; };
@@ -74,7 +75,7 @@
 		C4DC3A7725D390D900955374 /* LogoutAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC3A7625D390D900955374 /* LogoutAuthUseCase.swift */; };
 		C4DC3A7A25D3911400955374 /* LogoutAuthUseCaseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC3A7925D3911400955374 /* LogoutAuthUseCaseable.swift */; };
 		C4DC3A7F25D3938900955374 /* LogoutAuthDataSourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC3A7E25D3938900955374 /* LogoutAuthDataSourceable.swift */; };
-		C4DDE7DC25C9CA2200985600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DDE7DB25C9CA2200985600 /* Assets.xcassets */; };
+		C4DDE7DC25C9CA2200985600 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DDE7DB25C9CA2200985600 /* Images.xcassets */; };
 		C4F6A28B25CB2BFA00C8B2A5 /* SocialAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F6A28A25CB2BFA00C8B2A5 /* SocialAppleButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		C43056FD25D5BD2400D07A27 /* ProfileSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSwitchView.swift; sourceTree = "<group>"; };
 		C430570025D5BFB100D07A27 /* ProfileActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionView.swift; sourceTree = "<group>"; };
 		C430571F25D5E17500D07A27 /* UserInfo+DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+DTO.swift"; sourceTree = "<group>"; };
+		C430572325D5EFF900D07A27 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C439A99525D35E4800F341D0 /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		C439A99825D3649000F341D0 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		C439A99C25D364A900F341D0 /* AuthRepositable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositable.swift; sourceTree = "<group>"; };
@@ -148,7 +150,7 @@
 		C4DC3A7625D390D900955374 /* LogoutAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthUseCase.swift; sourceTree = "<group>"; };
 		C4DC3A7925D3911400955374 /* LogoutAuthUseCaseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthUseCaseable.swift; sourceTree = "<group>"; };
 		C4DC3A7E25D3938900955374 /* LogoutAuthDataSourceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAuthDataSourceable.swift; sourceTree = "<group>"; };
-		C4DDE7DB25C9CA2200985600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4DDE7DB25C9CA2200985600 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4F6A28A25CB2BFA00C8B2A5 /* SocialAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAppleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,8 +282,8 @@
 		C4858A8B25CEF0DC005F90AD /* Fields */ = {
 			isa = PBXGroup;
 			children = (
-				C49237EE25CBAB53008F283C /* LoginTextField.swift */,
 				C49237F125CBAE50008F283C /* LoginSecureField.swift */,
+				C49237EE25CBAB53008F283C /* LoginTextField.swift */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -298,9 +300,9 @@
 		C4A9F54525D4500C00D9C42A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C4A9F55625D4557600D9C42A /* ProfileDetailsView.swift */,
 				C4DAC89125D054C00093D717 /* ProfileView.swift */,
 				C4A9F55325D4529400D9C42A /* ProfileView+Sections.swift */,
-				C4A9F55625D4557600D9C42A /* ProfileDetailsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -308,8 +310,8 @@
 		C4A9F54A25D450A500D9C42A /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				C4A9F54C25D450D500D9C42A /* ProfileSettingsButton.swift */,
 				C4A9F55025D4517600D9C42A /* ProfileLogoutButton.swift */,
+				C4A9F54C25D450D500D9C42A /* ProfileSettingsButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -317,13 +319,13 @@
 		C4A9F54B25D450AA00D9C42A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C4A9F54625D4501D00D9C42A /* ProfileUser.swift */,
-				C4B41F8825D563920029D85E /* ProfileDetailsUser.swift */,
+				C430570025D5BFB100D07A27 /* ProfileActionView.swift */,
 				C4B41F9425D57BE60029D85E /* ProfileDetailsRow.swift */,
-				C4B41F9825D581260029D85E /* ProfileUserImage.swift */,
+				C4B41F8825D563920029D85E /* ProfileDetailsUser.swift */,
 				C43056FA25D5B11900D07A27 /* ProfileProgressView.swift */,
 				C43056FD25D5BD2400D07A27 /* ProfileSwitchView.swift */,
-				C430570025D5BFB100D07A27 /* ProfileActionView.swift */,
+				C4A9F54625D4501D00D9C42A /* ProfileUser.swift */,
+				C4B41F9825D581260029D85E /* ProfileUserImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,7 +504,8 @@
 		C4DDE7DA25C9CA0A00985600 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C4DDE7DB25C9CA2200985600 /* Assets.xcassets */,
+				C430572325D5EFF900D07A27 /* Colors.xcassets */,
+				C4DDE7DB25C9CA2200985600 /* Images.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -673,7 +676,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4DDE7DC25C9CA2200985600 /* Assets.xcassets in Resources */,
+				C430572425D5EFF900D07A27 /* Colors.xcassets in Resources */,
+				C4DDE7DC25C9CA2200985600 /* Images.xcassets in Resources */,
 				C4CBDD0725D34E5E007DC5CA /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

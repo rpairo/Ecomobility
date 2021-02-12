@@ -16,6 +16,7 @@ struct User {
     var familyName: String?
     var givenName: String?
 
+    // Computed properties
     var pictureData: Data? {
         guard let picture = self.picture else { return nil }
         guard let url = URL(string: picture) else { return nil }
