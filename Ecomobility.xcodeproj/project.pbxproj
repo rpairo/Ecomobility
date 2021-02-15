@@ -181,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				C4661D5725C8B8BB0055E0D8 /* Info.plist */,
-				C4CBDD0625D34E5E007DC5CA /* Auth0.plist */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -338,6 +337,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C4C5425F25DA7480009F64D3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C4CBDD0625D34E5E007DC5CA /* Auth0.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		C4CBDD0C25D35A3A007DC5CA /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +373,7 @@
 		C4DA829725D3D85A00C94F03 /* Auth0 */ = {
 			isa = PBXGroup;
 			children = (
+				C4C5425F25DA7480009F64D3 /* Configuration */,
 				C4DA829925D3DCA500C94F03 /* Entities */,
 				C4CBDD0925D35A07007DC5CA /* Auth0DataSource.swift */,
 				C4DA82AA25D3F3D000C94F03 /* Auth0DataSource+Check.swift */,
